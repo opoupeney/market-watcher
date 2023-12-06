@@ -88,6 +88,26 @@
   transform: translateY(0);
 }
 
+.App-answer {
+  border-top: 1px solid #767676;
+  font-size: 14px;
+  font-style: italic;
+  max-width: 400px;
+  min-width: 400px;
+  padding: 10px;
+}
+
+.App-answer a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.App-answer a:hover {
+  color: rgb(114, 213, 255);
+  text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
