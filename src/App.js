@@ -1,44 +1,44 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
 
 import {
   orkesConductorClient,
-  workflow,
-  inlineTask,
   WorkflowExecutor,
 } from "@io-orkes/conductor-javascript/browser";
 
 // Server Settings
 const serverSettings = {
-  keyId: 'aa93cd96-8dfa-4520-8a0d-7d433c70ab46',
-  keySecret: 'TBKmUVwLAycExScffcZkRz7aCmmucVKp4hI4lFDHG7RJlvkF',
+  keyId: '985a5e65-a50d-42ef-82ae-be38b0016dbf',
+  keySecret: 'XxfJh8YyjYPcMSc1MwhdxB8x4hUwwDicyEZG3FR89FLofufw',
   serverUrl: 'https://op-uat.orkesconductor.io/api',
 };
 
+const clientPromise = orkesConductorClient(serverSettings);
+
 function App() {
-  const clientPromise = orkesConductorClient(serverSettings);
 
-  const execute = async () => {
-    const client = await clientPromise;
-    const executor = new WorkflowExecutor(client);
-  
-    const workflowName = "market_news_search";
-
-    const result = await executor.executeWorkflow(
-        {
-            name: workflowName,
-            version: 1,
-            input: { "question": "What is Snowflake's growth? Give the associated news url",
-            "namespace": "demo",
-            "destination": "" },
-        },
-        workflowName,
-        1,
-        "123456"
-    );
-    const output = result.output?.echo;
-
-  };
+    useEffect(() => {
+      const execute = async () => {
+        // const client = await clientPromise;
+        // const executor = new WorkflowExecutor(client);
+      
+        // const workflowName = "market_news_search";
+    
+        // const result = await executor.executeWorkflow(
+        //     {
+        //         name: workflowName,
+        //         version: 1,
+        //         input: { "question": "What is Snowflake's growth? Give the associated news url",
+        //         "namespace": "demo",
+        //         "destination": "" },
+        //     },
+        //     workflowName,
+        //     1,
+        //     "123456"
+        // );
+        // console.log(result.output);
+      }
+    }, []);
 
   return (
     <div className="App">
